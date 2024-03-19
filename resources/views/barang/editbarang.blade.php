@@ -9,8 +9,8 @@
     <h2>Edit Data Barang {{$barang->id}} </h2>
         <form action="/barang/{{$barang->id}}" method="POST">
             @csrf
-           @method('PUT')
-           <div class="form-group p-3">
+            @method('PUT')
+            <div class="form-group p-3">
             <label for="">Nama Barang</label>
             <input value="{{ $barang->nama_barang }}" type="text" name="nama_barang" class="form-control" placeholder="Masukan Nama Barang" required>
             @error('nama_barang')

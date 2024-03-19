@@ -14,6 +14,12 @@ class TransaksiController extends Controller
     // method untuk menampilkan view index
     public function index()
     {
+        // code sweet alert untuk menampilkan pesan jika ingin menghapus data
+        $title = 'Peringatan !';
+        $text = 'Apakah anda yakin ingin menghapus data ini ?';
+        $icon = 'warning';
+        confirmDelete($title, $text);
+        
         // mengambil data dari table transaksi agar bisa ditampilkan di view index
         $transaksi = Transaksi::all();
         return view('transaksi.index', compact('transaksi'));

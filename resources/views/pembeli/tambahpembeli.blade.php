@@ -33,7 +33,7 @@
             <label for="">alamat Pembeli</label>
             <input type="text" name="alamat_pembeli" class="form-control" placeholder="Masukan alamat pembeli" required>
             @error('alamat_pembeli')
-                <div class="alert alert-danger">{{ $message }}</div>
+                <div class= "alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
 

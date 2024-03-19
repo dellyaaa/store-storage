@@ -72,12 +72,12 @@ class PembeliController extends Controller
         ]);
 
         Alert::success('Success', 'Data Pembeli Berhasil Diubah');
-
         return redirect('/pembeli');
     }
 
     public function destroy($id){
         DB::table('pembeli')->where('id', $id)->delete();
+        Alert::success('Success', 'Data Pembeli Berhasil Dihapus');
         return redirect('/pembeli');
     }
 

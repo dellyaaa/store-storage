@@ -74,7 +74,6 @@ class BarangController extends Controller
 
     // code ini untuk update data barang contohnya mau mengupdate data barang yang sudah ada
     public function update(Request $request, $id) {
-
         // mengvalidasi data yang akan diupdate atau mengubah data
         $request->validate([
             'nama_barang' => 'required|',
@@ -96,7 +95,6 @@ class BarangController extends Controller
             'telp_suplier' => $request->telp_suplier,
             'alamat_suplier' => $request->alamat_suplier
         ]);
-
 
         // redirect ke halaman barang dan menampilkan pesan sukses
         Alert::success('Success', 'Data Barang Berhasil Diubah');

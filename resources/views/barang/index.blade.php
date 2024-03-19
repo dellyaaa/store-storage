@@ -21,7 +21,7 @@
                     <th scope="col">Telpon Suplier</th>
                     <th scope="col">Alamat Suplier</th>
                     <th scope="col">Aksi</th>
-              </tr>
+                </tr>
             </thead>
 
             <tbody>

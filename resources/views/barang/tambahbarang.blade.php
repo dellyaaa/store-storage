@@ -20,14 +20,16 @@
         </div>
         <div class="form-group p-3">
             <label for="">Tanggal Masuk Barang</label>
-            <input type="date" name="tanggal_masuk" class="form-control" placeholder="Masukan Tanggal Masuk Barang" required>
+            <input type="date" name="tanggal_masuk" class="form-control" placeholder="Masukan Tanggal Masuk Barang"
+                required>
             @error('tanggal_masuk')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group p-3">
             <label for="">Tanggal Keluar Barang</label>
-            <input type="date" name="tanggal_keluar" class="form-control" placeholder="Masukan Tanggal Keluar Barang" required>
+            <input type="date" name="tanggal_keluar" class="form-control" placeholder="Masukan Tanggal Keluar Barang"
+                required>
             @error('tanggal_keluar')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror

@@ -75,7 +75,6 @@ class KasirController extends Controller
         ]);
 
         Alert::success('Success', 'Data Kasir Berhasil Diubah');
-
         return redirect('/kasir');
     }
 
