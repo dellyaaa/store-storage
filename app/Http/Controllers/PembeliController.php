@@ -15,9 +15,10 @@ class PembeliController extends Controller
         $title = 'Peringatan !';
         $text = 'Apakah anda yakin ingin menghapus data ini ?';
         $icon = 'warning';
+        $showmenu = auth()->user()->isAdmin();
         confirmDelete($title, $text);
 
-        return view('pembeli.index', compact('pembeli'));
+        return view('pembeli.index', compact('pembeli', 'showmenu'));
     }
 
     public function tambahpembeli()

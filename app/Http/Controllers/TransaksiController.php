@@ -19,10 +19,10 @@ class TransaksiController extends Controller
         $text = 'Apakah anda yakin ingin menghapus data ini ?';
         $icon = 'warning';
         confirmDelete($title, $text);
-        
+        $showmenu = auth()->user()->isAdmin();
         // mengambil data dari table transaksi agar bisa ditampilkan di view index
         $transaksi = Transaksi::all();
-        return view('transaksi.index', compact('transaksi'));
+        return view('transaksi.index', compact('transaksi', 'showmenu'));
     }
 
     // method untuk menampilkan view tambah transaksi

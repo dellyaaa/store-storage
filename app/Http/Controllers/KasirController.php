@@ -15,8 +15,9 @@ class KasirController extends Controller
         $title = 'Peringatan !';
         $text = 'Apakah anda yakin ingin menghapus data ini ?';
         $icon = 'warning';
+        $showmenu = auth()->user()->isAdmin();
         confirmDelete($title, $text);
-        return view('kasir.index', compact('kasir'));
+        return view('kasir.index', compact('kasir', 'showmenu'));
     }
 
     public function tambahkasir()

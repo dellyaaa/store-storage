@@ -37,13 +37,13 @@ Route::get('/user/{id}', function($id) {
     return 'SMK Telkom Purwokerto' .$id;
 });
 
-Route::get('/user/{name?}', function ($name = 'Adel') {
+Route::get('/user/{name?}', function ($name = 'Khilma') {
     return $name;
 });
 
 Route::get('/', function(){
-    return view('welcome');
-})->name('home');
+    return view('homepage');
+});
 
 Route::get('/pendataan', function (){
     return view('pendataan');
@@ -54,22 +54,26 @@ Route::get('/hitung', [BerhitungController:: class, 'hitung']);
 Route::get('/daftar', [TestController::class, 'daftar']);
 Route::post('/kirim', [TestController::class, 'kirim']);
 
-Route::get('/dashboard', [DashboardController::class,'index']);
-Route::get('/transaksi', [TransaksiController::class,'index']);
-Route::get('/pembeli', [PembeliController::class,'index']);
-Route::get('/kasir', [KasirController::class,'index']);
+
+Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth');
+
+// Route::get('/transaksi', [TransaksiController::class,'index']);
+// Route::get('/pembeli', [PembeliController::class,'index']);
+// Route::get('/kasir', [KasirController::class,'index']);
 
 
+Route::middleware(['auth','admin'])->group(function () {
 
-// Route untuk table barang
-Route::get('/barang', [BarangController::class,'index']);
-Route::get('/tambahbarang', [BarangController::class,'tambahbarang']);
-Route::post('/barang', [BarangController::class,'barang']);
-Route::get('/barang/{barang_id}', [BarangController::class,'show']);
-Route::get('/barang/{barang_id}/edit', [BarangController::class,'edit']);
-Route::put('/barang/{barang_id}', [BarangController::class,'update']);
-Route::delete('/barang/{barang_id}', [BarangController::class,'destroy']);
+    // Route untuk table barang
+    Route::get('/barang', [BarangController::class,'index']);
+    Route::get('/tambahbarang', [BarangController::class,'tambahbarang']);
+    Route::post('/barang', [BarangController::class,'barang']);
+    Route::get('/barang/{barang_id}', [BarangController::class,'show']);
+    Route::get('/barang/{barang_id}/edit', [BarangController::class,'edit']);
+    Route::put('/barang/{barang_id}', [BarangController::class,'update']);
+    Route::delete('/barang/{barang_id}', [BarangController::class,'destroy']);
 
+});
 
 // Route untuk table pembeli
 Route::get('/pembeli', [PembeliController::class,'index']);
@@ -89,7 +93,6 @@ Route::get('/kasir/{kasir_id}/edit', [KasirController::class,'edit']);
 Route::put('/kasir/{kasir_id}', [KasirController::class,'update']);
 Route::delete('/kasir/{kasir_id}', [KasirController::class,'destroy']);
 
-
 // Route untuk table transaksi
 Route::get('/transaksi', [TransaksiController::class, 'index']);
 Route::get('/tambahtransaksi', [TransaksiController::class, 'tambahtransaksi']);
@@ -100,3 +103,8 @@ Route::put('/transaksi/{id}', [TransaksiController::class, 'update']);
 Route::delete('/transaksi/{id}', [TransaksiController::class, 'destroy']);
 
 
+
+Auth::routes();
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginform'])->name('login');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

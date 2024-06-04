@@ -19,9 +19,9 @@ class BarangController extends Controller
         $text = 'Apakah anda yakin ingin menghapus data ini ?';
         $icon = 'warning';
         confirmDelete($title, $text);
-
+        $showmenu = auth()->user()->isAdmin();
         // mengirim data barang ke view index
-        return view('barang.index', compact('barang'));
+        return view('barang.index', compact('barang','showmenu'));
     }
 
     // method untuk menampilkan view tambah barang
